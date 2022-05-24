@@ -18,7 +18,16 @@ function computerPlay() {
 // plays a single round of rock, paper, and scissors
 
 function playRound(playerSelection, computerSelection) {
+  //let pr = alert('Lets play a game.');
+  //let w = confirm('You Won!!!!');
+  //let l = confirm('You Lost.');
+
+  switch(playerselection)
+  case 'rock'
+
 
 }
-const playSelection = prompt("Rock? Paper? or Scissors?", '');
+
+const playerSelection = 'rock' || 'Rock' //prompt("Rock? Paper? or Scissors?", '');
 const computerSelection = computerPlay()
+console.log(playRound(playerSelection, computerSelection));
