@@ -1,4 +1,4 @@
-// function; randomly chooses be between rock, paper, and scissors
+//  randomly chooses be between rock, paper, and scissors
 'use script';
 function computerPlay() {
  let r = Math.floor(Math.random() * 3)
@@ -19,8 +19,8 @@ function computerPlay() {
 // plays a single round of rock, paper, and scissors
 
 function playRound(pSelection, cSelection) {
- // prompt play game
-  if( pSelection == 'rock' || pSelection == 'Rock') {
+
+  if( pSelection == 'rock' || pSelection == 'Rock' || pSelection == 'r') {
 
     if(cSelection == 'paper') {
 
@@ -34,7 +34,7 @@ function playRound(pSelection, cSelection) {
       return('rock ties with rock')
     }
   }
-  else if (pSelection == 'paper' || pSelection == 'Paper') {
+  else if (pSelection == 'paper' || pSelection == 'Paper' || pSelection == 'p') {
 
     if (cSelection == 'scissors'){
       return('scissors beats paper')
@@ -51,7 +51,7 @@ function playRound(pSelection, cSelection) {
 
 
   }
- else if(pSelection == 'scissors' || pSelection == 'Scissors') {
+ else if(pSelection == 'scissors' || pSelection == 'Scissors' || pSelection == 's') {
    if (cSelection == 'rock') {
      return('rock beats scissors')
 
@@ -65,19 +65,30 @@ function playRound(pSelection, cSelection) {
  }
 
 
-
-
 }
 
-const pSelection = prompt("Rock? Paper? or Scissors?", '');
-const cSelection = computerPlay()
-console.log(playRound(pSelection, cSelection));
-
-function game(){
-
-  for(let i = 0; (i <= 6); i++)
-    {
-      playRound()
-    }
-}
+//console.log(playRound(pSelection, cSelection));
 game()
+
+//display amount of games the player has won
+//
+//
+function game() {
+
+
+  for(let i = 1; (i < 5); i++)
+    {
+      if( i % 1 ===  0 ) {
+        const pSelection = prompt("Rock? Paper? or Scissors?", '');
+        const cSelection = computerPlay()
+
+        console.log(playRound(pSelection, cSelection))
+      }
+      else if ( i == 6){
+
+          return ('Game has ended')
+        }
+
+    }
+
+}
