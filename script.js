@@ -28,29 +28,40 @@ function playRound(pS, cS) {
  //Player choose scissors
   if(pS == 'scissors' || pS == 's' && cS == 'paper' ) {
     pScore++;
-    console.log ('Player wins. Scissors beats Paper.')
+    console.log ('Scissors beats Paper.')
+    console.log(`Player : ${pScore}` )
+    console.log(`Computer : ${cScore}`)
+
   }
   //Player chooses paper
   else if (pS == 'paper' || pS == 'p' && cS == 'rock') {
    pScore++;
-    console.log ('Player wins.Paper beats Rock')
+    console.log (`Paper beats Rock.`)
+    console.log(`Player : ${pScore}` )
+    console.log(`Computer : ${cScore}`)
   }
+  //Player chooses rock
   else if (pS == 'rock' || pS == 'r' && cS == 'scissors') {
     pScore++;
-    console.log ('Player wins. Rock beats Scissors')
+    console.log (`Rock beats Scissors.`)
+    console.log(`Player : ${pScore}` )
+    console.log(`Computer : ${cScore}`)
+
   }
   else if (pS == cS) {
     console.log('Its a tie')
   }
   else {
    cScore++;
-    console.log (`Computer wins. : $(cScore)  `)
+    console.log (`Computer gains ${cScore} point.`)
+    console.log(`Player : ${pScore}` )
+    console.log(`Computer : ${cScore}`)
+
   }
 //
 }
 
 function game() {
-
 
   for(let round = 0; (round <= 5); round++)
     {
@@ -58,19 +69,12 @@ function game() {
       let cS = computerPlay()
       playRound(pS, cS)
       if (pScore == 3) {
-        console.log('Player wins game.')
+        console.log('You Win!!!! :)')
       }
         else if (cScore == 3)  {
-        console.log('Computer wins game.')
+        console.log('You lose. :(')
 
         }
 
       }
       }
-
-
-/*function gameWinner(){
-    return pScore > cScore
-
-}
-*/
