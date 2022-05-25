@@ -1,5 +1,11 @@
 //  randomly chooses be between rock, paper, and scissors
 'use script';
+
+game()
+
+let pScore = 0;
+let cScore = 0;
+
 function computerPlay() {
  let r = Math.floor(Math.random() * 3)
 
@@ -17,78 +23,105 @@ function computerPlay() {
 }
 
 // plays a single round of rock, paper, and scissors
+// pS is short for player Selection.
+// cS is short for Computer Selection
 
-function playRound(pSelection, cSelection) {
+function playRound(pS, cS) {
 
-  if( pSelection == 'rock' || pSelection == 'Rock' || pSelection == 'r') {
+  //Player chooses rock
+  if( pS == 'rock' || pS == 'Rock' || pS == 'r') {
 
-    if(cSelection == 'paper') {
+    if(cS == 'paper') {
 
-      return('paper beats rock')
+      cScore++;
+      return('paper beats rock.')
     }
-      else if (cSelection == 'scissors') {
-
-        return('rock beats scissors')
+      else if (cS == 'scissors') {
+         pScore++
+        return('rock beats scissors.')
       }
     else {
-      return('rock ties with rock')
+
+      return('rock ties with rock.')
     }
   }
-  else if (pSelection == 'paper' || pSelection == 'Paper' || pSelection == 'p') {
 
-    if (cSelection == 'scissors'){
-      return('scissors beats paper')
+  //Player chooses paper
+  else if (pS == 'paper' || pS == 'Paper' || pS == 'p') {
+
+    if (cS == 'scissors'){
+
+      cScore++;
+      return('scissors beats paper.')
     }
 
-    else if (cSelection == 'rock') {
-      return('paper beats rock')
+    else if (cS == 'rock') {
+      pScore++;
+      return('paper beats rock.')
     }
 
    else {
-      return('paper ties with paper')
 
+     return('paper ties with paper.')
    }
-
 
   }
- else if(pSelection == 'scissors' || pSelection == 'Scissors' || pSelection == 's') {
-   if (cSelection == 'rock') {
-     return('rock beats scissors')
+
+  //Player chooses Scissors
+  else if(pS == 'scissors' || pS == 'Scissors' || pS == 's') {
+   //Player loses
+   if (cS == 'rock') {
+
+     cScore++
+     return('rock beats scissors.')
 
    }
-   else if (cSelection == 'paper') {
-     return('scissors beats paper')
+    //Player wins
+   else if (cS == 'paper') {
+
+     pScore++;
+     return('scissors beats paper.')
+
    }
-   else {
-     return('scissors ties with scissors')
+    //Player ties
+    else {
+
+      return('scissors ties with scissors.')
    }
  }
 
 
 }
 
-//console.log(playRound(pSelection, cSelection));
-game()
-
-//display amount of games the player has won
-//
-//
 function game() {
 
-
-  for(let i = 1; (i < 5); i++)
+  for(let i = 1; (i <= 5); i++)
     {
       if( i % 1 ===  0 ) {
-        const pSelection = prompt("Rock? Paper? or Scissors?", '');
-        const cSelection = computerPlay()
 
-        console.log(playRound(pSelection, cSelection))
+        let pS = prompt("Rock? Paper? or Scissors?", '');
+        let cS = computerPlay()
+
+        return playRound(pS, cS)
       }
-      else if ( i == 6){
-
-          return ('Game has ended')
-        }
-
+      else {
+        return gameScore()
+      }
+     
     }
 
 }
+
+function gameScore() {
+
+  if (pScore > cScore) {
+
+    return ('Player has won')
+  }
+  else if (cScore > pScore) {
+
+    return ('Computer has won')
+  }
+
+
+   }
